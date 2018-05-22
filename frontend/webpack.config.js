@@ -6,7 +6,7 @@ todo: criar /src, index.jxs, criar /public
 */
 
 module.exports = {
-    entry: './src/index.jxs',
+    entry: './src/index.jsx',
     output: {
         path: __dirname + '/public',
         filename: './app.js'
