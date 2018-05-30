@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 
-/* estado */
+/* todo - chave do Reducer na Store (o state) */
 const rootReducer = combineReducers({
     todo: () => ({
         description: 'Ler livro',
