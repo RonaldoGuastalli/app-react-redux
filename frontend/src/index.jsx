@@ -9,6 +9,7 @@ import { Provider } from 'react-redux'
 //middleware
 import promise from 'redux-promise'
 import multi from 'redux-multi'
+import thunk from 'redux-thunk'
 
 //meus componentes
 import App from './main/app'
@@ -24,7 +25,7 @@ com id="app" <div id="app" class='container'></div>.
 provider tem este objeto unico para transmitir
 */
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-const store = applyMiddleware(multi, promise)(createStore)(reducers, devTools)
+const store = applyMiddleware(thunk, multi, promise)(createStore)(reducers, devTools)
 ReactDOM.render(
     <Provider store={store}>
         <App />
