@@ -1,8 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 import Grid from '../template/grid'
 import IconButton from '../template/iconButton'
+import { changeDescription } from './todoActions'
 
 /* 
     onChande -> handleChange -> todo -> handleChange(e) -> 
@@ -25,7 +27,7 @@ const TodoForm = props => {
             <Grid cols='12 9 10'>
                 <input id='description' className='form-control'
                     placeholder='Adicione uma tarefa'
-                    onChange={props.handleChange}
+                    onChange={props.changeDescription}
                     onKeyUp={keyHandler}
                     value={props.description}>
                 </input>
@@ -53,7 +55,12 @@ const TodoForm = props => {
     )
 }
 
+/* 
+actionCreators - An action creator, or an object whose values are action creators - changeDescription em todoActions.js.
+dispatch function available on the Store instance - todo em reducers.js.
+*/
 const mapStateToProps = state => ({description: state.todo.description})
-export default connect(mapStateToProps)(TodoForm)
+const mapDispatchToProps = dispatch => bindActionCreators({ changeDescription }, dispatch)
+export default connect(mapStateToProps, mapDispatchToProps)(TodoForm)
 
 
